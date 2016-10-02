@@ -172,7 +172,3 @@ ENV/
 
 # Rope project settings
 .ropeproject
-
-
-### Less ###
-*.css

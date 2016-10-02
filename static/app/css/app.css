@@ -1,0 +1,42 @@
+/*Custom CSS*/
+
+body {
+    color:#131516;
+    font-family: 'Open Sans','Tangerine', serif;
+    font-size: 16px;
+}
+
+#content {
+    margin-top:100px;
+}
+
+#content .jumbotron {
+    background: url("../img/colon-cancer.jpg");
+    /*background-color: #3C6478;*/
+    color: #c02f1d;
+}
+
+#about .tab-pane {
+    padding: 2em;
+}
+
+#about .tab-pane h4 {
+    font-weight: 800;
+}
+
+#loading-bar {
+  pointer-events: all;
+  z-index: 99999;
+  border: none;
+  margin: 0px;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  cursor: wait;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  font-size: 30px;
+}
