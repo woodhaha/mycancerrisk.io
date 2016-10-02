@@ -5,7 +5,7 @@ angular.module('CRCRiskApp.risk', ['ngRoute','schemaForm', 'angular-loading-bar'
     	cfpLoadingBarProvider.latencyThreshold = 50;
     	cfpLoadingBarProvider.includeSpinner = false;
   		cfpLoadingBarProvider.includeBar = true;
-  		cfpLoadingBarProvider.loadingBarTemplate = '<div id="loading-bar"><span class="fa">Calculating...</span><div class="bar"><div class="peg"></div></div></div>';
+  		cfpLoadingBarProvider.loadingBarTemplate = '<div id="loading-bar"><span class="fa">Working hard...</span><div class="bar"><div class="peg"></div></div></div>';
   
   	}])
 	.controller('CRCRiskCtrl', ['$scope', '$rootScope', '$http', '$location','$timeout', 'cfpLoadingBar', function($scope, $rootScope, $http, $location, $timeout, cfpLoadingBar) {
