@@ -219,7 +219,7 @@
     "type": "object",
     "properties": {
       "hispanic": {
-        "title": " Do you consider yourself to be Hispanic or Latino?",
+        "title": "1. Do you consider yourself to be Hispanic or Latino?",
         "type": "string",
         "enum": [
           "Yes",
@@ -227,7 +227,7 @@
         ]
       },
       "race": {
-        "title": " Which of the following do you consider yourself to be?",
+        "title": "2. Which of the following do you consider yourself to be?",
         "type": "string",
         "enum": [
           "White",
@@ -236,7 +236,7 @@
         ]
       },
       "age": {
-        "title": "What is your age? ",
+        "title": "3. What is your age? ",
         "type": "string",
         "enum": [
           "50",
@@ -279,7 +279,7 @@
         "description": "<b>NOTE: This tool calculates risk for men and women 50 to 85 years of age.</b>"
       },
       "gender": {
-        "title": " What is your sex?",
+        "title": "4. What is your sex?",
         "type": "string",
         "enum": [
           "Male",
@@ -287,7 +287,7 @@
         ]
       },
       "height_feet": {
-        "title": "What is your height without shoes?(feet)",
+        "title": "5. What is your height without shoes? (feet)",
         "type": "string",
         "enum": [
           "0",
@@ -305,7 +305,7 @@
         ]
       },
       "height_inches": {
-        "title": "What is your height without shoes?(inches)",
+        "title": "6. What is your height without shoes? (inches)",
         "type": "string",
         "enum": [
           "1",
@@ -322,7 +322,7 @@
         ]
       },
       "weight": {
-        "title": "What is your weight without shoes?(lbs)",
+        "title": "7. What is your weight without shoes? (lbs)",
         "type": "number"
       }
     },

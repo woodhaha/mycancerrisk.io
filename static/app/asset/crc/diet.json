@@ -77,7 +77,7 @@
     "type": "object",
     "properties": {
       "vegetables_serving": {
-        "title": "In the past 30 days, about how many servings per week of vegetables or leafy green salads did you eat?",
+        "title": "1. In the past 30 days, about how many servings per week of vegetables or leafy green salads did you eat?",
         "type": "string",
         "enum": [
           "None",
@@ -91,7 +91,7 @@
         "description": "NOTE: If you have eaten vegetables in the past 30 days, you will define serving size in the next question."
       },
       "vegetables_serving_size": {
-        "title": "In the past 30 days, how much did you usually eat in each serving of vegetables or leafy green salads?",
+        "title": "2. In the past 30 days, how much did you usually eat in each serving of vegetables or leafy green salads?",
         "type": "string",
         "enum": [
           "1/2 cup or less",
