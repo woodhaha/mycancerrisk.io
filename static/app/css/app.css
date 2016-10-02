@@ -2,8 +2,9 @@
 
 body {
     color:#131516;
-    font-family: 'Open Sans','Tangerine', serif;
+    font-family: 'Open Sans', 'Work Sans', 'Tangerine', serif;
     font-size: 16px;
+    text-rendering: optimizeLegibility;
 }
 
 #content {
