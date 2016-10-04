@@ -1,0 +1,78 @@
+{
+  "form": [
+    {
+      "type": "help",
+      "helpvalue": "<h3>Section 4: Medications<h3>"
+    },
+    {
+      "key": "take_aspirin",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "Yes",
+          "name": "Yes"
+        },
+        {
+          "value": "No",
+          "name": "No"
+        },
+        {
+          "value": "I don't know",
+          "name": "I don't know"
+        }
+      ]
+    },
+    {
+      "key": "not_take_aspirin",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "Yes",
+          "name": "Yes"
+        },
+        {
+          "value": "No",
+          "name": "No"
+        },
+        {
+          "value": "I don't know",
+          "name": "I don't know"
+        }
+      ]
+    },
+    {
+      "type": "submit",
+      "style": "btn-info",
+      "title": "Next"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "properties": {
+      "take_aspirin": {
+        "title": "During the past 30 days, have you taken medications containing aspirin at least 3 times a week, such as: Bufferin, Bayer, Excedrin, Other generic form",
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No",
+          "I don't know"
+        ],
+        "description": "NOTE: Do NOT include TYLENOL"
+      },
+      "not_take_aspirin": {
+        "title": "During the past 30 days, have you taken medications that do NOT contain aspirin at least 3 times a week, such as: Advil, Aleve, Celebrex, Ibuprofen, Motrin, Naproxen, Nuprin",
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No",
+          "I don't know"
+        ],
+        "description": "NOTE: Do NOT include TYLENOL"
+      }
+    },
+    "required": [
+      "take_aspirin",
+      "not_take_aspirin"
+    ]
+  }
+}

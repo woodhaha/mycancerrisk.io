@@ -1,0 +1,77 @@
+{
+  "form": [
+    {
+      "type": "help",
+      "helpvalue": "<h3>Section 3: Medical History<h3>"
+    },
+    {
+      "key": "medical_history_self",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "Yes",
+          "name": "Yes"
+        },
+        {
+          "value": "No",
+          "name": "No"
+        },
+        {
+          "value": "I don't know",
+          "name": "I don't know"
+        }
+      ]
+    },
+    {
+      "key": "medical_history_provider",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "Yes",
+          "name": "Yes"
+        },
+        {
+          "value": "No",
+          "name": "No"
+        },
+        {
+          "value": "I don't know",
+          "name": "I don't know"
+        }
+      ],
+      "condition": "response.medical_history_self == 'Yes'"
+    },
+    {
+      "type": "submit",
+      "style": "btn-info",
+      "title": "Next"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "properties": {
+      "medical_history_self": {
+        "title": "During the past 10 years, did you have a colonoscopy, sigmoidoscopy, or both?",
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No",
+          "I don't know"
+        ]
+      },
+      "medical_history_provider": {
+        "title": "In the past 10 years did a healthcare provider tell you that you had a colon or rectal polyp?",
+        "type": "string",
+        "enum": [
+          "Yes",
+          "No",
+          "I don't know"
+        ]
+      }
+    },
+    "required": [
+      "medical_history_self",
+      "medical_history_provider"
+    ]
+  }
+}

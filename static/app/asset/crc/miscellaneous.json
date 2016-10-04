@@ -1,0 +1,97 @@
+{
+  "form": [
+    {
+      "type": "help",
+      "helpvalue": "<h3>Section 6: Miscellaneous<h3>"
+    },
+    {
+      "key": "periods",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "Yes",
+          "name": "Yes"
+        },
+        {
+          "value": "No",
+          "name": "No"
+        }
+      ]
+    },
+    {
+      "key": "last_period",
+      "type":"select",
+      "titleMap": [
+        {
+          "value": "1 year ago or less",
+          "name": "1 year ago or less"
+        },
+        {
+          "value": "More than 1 year ago but less than 2 years ago",
+          "name": "More than 1 year ago but less than 2 years ago"
+        },
+        {
+          "value": "2 year ago or more",
+          "name": "2 year ago or more"
+        }
+      ],
+      "condition": "response.periods == 'No'"
+    },
+    {
+      "key": "female_hormones",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": "Yes",
+          "name": "Yes"
+        },
+        {
+          "value": "No",
+          "name": "No"
+        }
+      ],
+      "condition": "response.periods == 'No' && response.last_period == '2 year ago or more'"
+    },
+    {
+      "type": "submit",
+      "style": "btn-info",
+      "title": "Next"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "properties": {
+      "periods": {
+        "title": "Do you still have periods?",
+        "type": "string",
+        "enum": [
+            "Yes",
+            "No"
+        ]
+    },
+      "last_period": {
+        "title": "When did you have your last period?",
+        "type": "string",
+        "enum": [
+            "1 year ago or less",
+            "More than 1 year ago but less than 2 years ago",
+            "2 year ago or more"
+        ]
+      },
+      "female_hormones": {
+        "title": "During the past 2 years, have you used estrogen, progestin, or other female hormones?",
+        "type": "string",
+        "enum": [
+            "Yes",
+            "No"
+        ],
+        "description": "Note: These hormones may be given as hormone pills, oral contraceptives, shots, skin patches, vaginal creams, or as vaginal suppositories."
+      }
+    },
+    "required": [
+      "periods",
+      "last_period",
+      "female_hormones"
+    ]
+  }
+}

@@ -14,7 +14,7 @@ angular.module('CRCRiskApp.risk', ['ngRoute','schemaForm', 'angular-loading-bar'
     		return typeof $scope.response === 'string' ? $scope.response : JSON.stringify($scope.response, undefined, 2);
     	};
 
-    	var sections = ['demographics', 'diet'];
+    	var sections = ['demographics', 'diet', 'medical_history', 'medications', 'physical_activity', 'miscellaneous', 'family'];
     	//var sections = ['diet'];
 
 	    var next_section = function (sectionId) {
