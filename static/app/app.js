@@ -4,7 +4,6 @@ var _env = {};
 // Declare app level module which depends on views, and components
 var CRCRiskApp = angular.module('CRCRiskApp', [
   'ngRoute',
-  'CRCRiskApp.index',
   'CRCRiskApp.risk',
   'CRCRiskApp.about',
   'CRCRiskApp.user',
@@ -37,37 +36,8 @@ CRCRiskApp.config(['$routeProvider', function($routeProvider) {
   .otherwise({redirectTo: '/about'});
 }])
 
-CRCRiskApp.run(['$rootScope', '$location', '$window', '$routeParams', 'auth',
-  function($rootScope,$location,$window,$routeParams,auth) {
-    $window.fbAsyncInit = function(_env) {
-        FB.init({
-          appId      : __env.facebook.appId,
-          cookie     : __env.facebook.cookie,
-          status     : __env.facebook.status,
-          xfbml      : __env.facebook.xfbml,
-          version    : __env.facebook.version
-        });
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-
-    $rootScope.$on('$routeChangeStart', function(event, next, current) {
-        /*If route is authenticated, then the user should have access token*/
-        //console.log(event);
-        //console.log(current);
-        //console.log(next);
-        // if (next.$$route.authenticated) {
-        //     if (!auth.getAccessToken()) {
-        //       $location.path('/about');
-        //     }
-        // }
-    });
+CRCRiskApp.run(['$rootScope', '$location', '$window', '$routeParams',
+  function($rootScope,$location,$window,$routeParams) {
 
     $rootScope.$on('$routeChangeSuccess', function(e, current, pre) {
       var route = $location.path().substring(1);
