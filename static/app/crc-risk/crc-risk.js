@@ -6,7 +6,7 @@ angular.module('CRCRiskApp.risk', ['ngRoute','schemaForm', 'angular-loading-bar'
     	cfpLoadingBarProvider.includeSpinner = false;
   		cfpLoadingBarProvider.includeBar = true;
   		cfpLoadingBarProvider.loadingBarTemplate = '<div id="loading-bar"><span class="fa">Working hard...</span><div class="bar"><div class="peg"></div></div></div>';
-  
+
   	}])
 	.controller('CRCRiskCtrl', ['$scope', '$rootScope', '$http', '$location','$timeout', 'cfpLoadingBar', function($scope, $rootScope, $http, $location, $timeout, cfpLoadingBar) {
 
@@ -14,7 +14,7 @@ angular.module('CRCRiskApp.risk', ['ngRoute','schemaForm', 'angular-loading-bar'
     		return typeof $scope.response === 'string' ? $scope.response : JSON.stringify($scope.response, undefined, 2);
     	};
 
-    	var sections = ['demographics', 'diet', 'medical_history', 'medications', 'physical_activity', 'miscellaneous', 'family'];
+    	var sections = ['demographics', 'diet', 'medical_history', 'medications', 'physical_activity', 'female_miscellaneous', 'family'];
     	//var sections = ['diet'];
 
 	    var next_section = function (sectionId) {
@@ -38,6 +38,10 @@ angular.module('CRCRiskApp.risk', ['ngRoute','schemaForm', 'angular-loading-bar'
 		    // Then we check if the form is valid
 		    if (form.$valid) {
 		      // ... do whatever you need to do with your data.
+		      if(responseForm.gender && responseForm.gender.value == "Male") {
+		      	console.log(responseForm.gender.value);
+		      	sections[4] = 'male_miscellaneous';
+		      }
 		      var next_sectionId = sections.shift();
 		      if (next_sectionId) {
 		      	next_section(next_sectionId);
@@ -49,7 +53,6 @@ angular.module('CRCRiskApp.risk', ['ngRoute','schemaForm', 'angular-loading-bar'
               		$location.path('/risk-results');
               	},3000);
 		      }
-		      
 		    }
 		}
 
