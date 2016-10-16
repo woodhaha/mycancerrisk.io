@@ -42,6 +42,20 @@ angular.module('CRCRiskApp.risk', ['ngRoute','schemaForm', 'angular-loading-bar'
 		      	console.log(responseForm.gender.value);
 		      	sections[4] = 'male_miscellaneous';
 		      }
+
+		      $http({
+	              method: 'POST',
+	              url: '/saveUserInfo',
+	              data: {
+	                  info: $scope.response
+	              }
+	          }).then(function(response) {
+	          	  console.log(response.data.message);
+	          }, function(error) {
+	              console.log(error);
+	          });
+
+
 		      var next_sectionId = sections.shift();
 		      if (next_sectionId) {
 		      	next_section(next_sectionId);
