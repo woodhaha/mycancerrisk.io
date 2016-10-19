@@ -45,8 +45,9 @@ CRCRiskApp.run(['$rootScope', '$location', '$window', '$routeParams',
       // Get all URL parameter
       //console.log($routeParams);
       angular.element(document.querySelector('.nav.navbar-nav > li.active')).removeClass('active');
-      angular.element(document.querySelector('.nav.navbar-nav > li#' + route)).addClass('active');
-
+      if (route != '') {
+        angular.element(document.querySelector('.nav.navbar-nav > li#' + route)).addClass('active');
+      }
     });
 
 }]);

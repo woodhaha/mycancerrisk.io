@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify, render_template, url_for, session, redirect, Blueprint
 import config
 from flask_oauthlib.client import OAuth, OAuthException
+from flask import current_app
 
 fb_auth = Blueprint('fb_auth',__name__)
 fb_auth.secret_key = config.SECRET_KEY
 oauth = OAuth(fb_auth)
-
+me = ''
 #CRCRiskApp.jinja_env.variable_start_string = "[["
 #CRCRiskApp.jinja_env.variable_end_string   = "]]"
 
@@ -54,9 +55,10 @@ def facebook_authorized():
 
     session['oauth_token'] = (resp['access_token'], '')
     session['logged_in'] = True
-
     me = facebook.get('/me') # get user info (id, uname)
-
+    current_app.logger.info(me.data['id'])
+    current_app.logger.info(me.data['name'])
+    session['user_name'] = me.data['name']
     return redirect(url_for('homepage'))
 
 @fb_auth.route("/logout")
