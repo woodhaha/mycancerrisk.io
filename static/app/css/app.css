@@ -41,3 +41,10 @@ body {
   color: #FFFFFF;
   font-size: 20px;
 }
+
+.form-container {
+   padding-left: 10%;
+   padding-right:  10%;
+   margin-left: 10%;
+   margin-right: 10%;
+}

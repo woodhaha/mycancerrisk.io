@@ -6,7 +6,6 @@ from flask import current_app
 fb_auth = Blueprint('fb_auth',__name__)
 fb_auth.secret_key = config.SECRET_KEY
 oauth = OAuth(fb_auth)
-me = ''
 #CRCRiskApp.jinja_env.variable_start_string = "[["
 #CRCRiskApp.jinja_env.variable_end_string   = "]]"
 
