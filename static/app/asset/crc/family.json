@@ -9,15 +9,15 @@
       "type":"select",
       "titleMap": [
         {
-          "value": "Yes",
+          "value": "yes",
           "name": "Yes"
         },
         {
-          "value": "No",
+          "value": "no",
           "name": "No"
         },
         {
-          "value": "I don't know",
+          "value": "unk",
           "name": "I don't know"
         }
       ]
@@ -31,11 +31,11 @@
           "name": "1"
         },
         {
-          "value": "2 or more",
+          "value": "2",
           "name": "2 or more"
         },
         {
-          "value": "I don't know",
+          "value": "unk",
           "name": "I don't know"
         }
       ],
@@ -54,9 +54,9 @@
         "title": "Think only about your biological mother and father, full brothers and sisters, and your biological sons or daughters. At any time in their lives, did any of these relatives ever have cancer of the colon or rectum (cancer of the lower intestine)? ",
         "type": "string",
         "enum": [
-          "Yes",
-          "No",
-          "I don't know"
+          "yes",
+          "no",
+          "unk"
         ]
       },
       "num_cancer_relatives": {
@@ -64,8 +64,8 @@
         "type": "string",
         "enum": [
           "1",
-          "2 or more",
-          "I don't know"
+          "2",
+          "unk"
         ]
     }
     },

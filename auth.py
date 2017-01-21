@@ -6,8 +6,6 @@ from flask import current_app
 fb_auth = Blueprint('fb_auth',__name__)
 fb_auth.secret_key = config.SECRET_KEY
 oauth = OAuth(fb_auth)
-#CRCRiskApp.jinja_env.variable_start_string = "[["
-#CRCRiskApp.jinja_env.variable_end_string   = "]]"
 
 facebook = oauth.remote_app(
     'facebook',
@@ -27,8 +25,6 @@ def get_facebook_oauth_token():
     return session.get('oauth_token')
 
 def pop_login_session():
-#    session.pop('logged_in', None)
-#   session.pop('facebook_token', None)
     session.clear()
 
 @fb_auth.route('/login')
@@ -58,6 +54,7 @@ def facebook_authorized():
     current_app.logger.info(me.data['id'])
     current_app.logger.info(me.data['name'])
     session['user_name'] = me.data['name']
+    session['id'] = me.data['id']
     return redirect(url_for('homepage'))
 
 @fb_auth.route("/logout")

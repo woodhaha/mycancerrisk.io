@@ -160,23 +160,23 @@
       "type": "select",
       "titleMap": [
          {
-          "value": "Up to 1 hour per week",
+          "value": 1,
           "name": "Up to 1 hour per week"
         },
         {
-          "value": "Between 1-2 hours per week",
+          "value": 1,
           "name": "Between 1-2 hours per week"
         },
         {
-          "value": "Between 2-3 hours per week",
+          "value": 2,
           "name": "Between 2-3 hours per week"
         },
         {
-          "value": "Between 3-4 hours per week",
+          "value": 2,
           "name": "Between 3-4 hours per week"
         },
         {
-          "value": "More than 4 hours per week",
+          "value": 3,
           "name": "More than 4 hours per week"
         }
       ],
@@ -242,13 +242,13 @@
       },
       "vigorous_activity_hours": {
         "title": "During those months, on average, about how many hours per week did you do vigorous physical activities?",
-        "type": "string",
+        "type": "number",
         "enum": [
-          "Up to 1 hour per week",
-          "Between 1-2 hours per week",
-          "Between 2-3 hours per week",
-          "Between 3-4 hours per week",
-          "More than 4 hours per week"
+          1,
+          1,
+          2,
+          2,
+          3
         ]
       }
     },

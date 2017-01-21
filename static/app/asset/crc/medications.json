@@ -9,15 +9,15 @@
       "type": "radios",
       "titleMap": [
         {
-          "value": "Yes",
+          "value": 0,
           "name": "Yes"
         },
         {
-          "value": "No",
+          "value": 1,
           "name": "No"
         },
         {
-          "value": "I don't know",
+          "value": -9,
           "name": "I don't know"
         }
       ]
@@ -27,15 +27,15 @@
       "type": "radios",
       "titleMap": [
         {
-          "value": "Yes",
+          "value": 0,
           "name": "Yes"
         },
         {
-          "value": "No",
+          "value": 1,
           "name": "No"
         },
         {
-          "value": "I don't know",
+          "value": -9,
           "name": "I don't know"
         }
       ]
@@ -51,21 +51,21 @@
     "properties": {
       "take_aspirin": {
         "title": "During the past 30 days, have you taken medications containing aspirin at least 3 times a week, such as: Bufferin, Bayer, Excedrin, Other generic form",
-        "type": "string",
+        "type": "number",
         "enum": [
-          "Yes",
-          "No",
-          "I don't know"
+          0,
+          1,
+          -9
         ],
         "description": "NOTE: Do NOT include TYLENOL"
       },
       "not_take_aspirin": {
         "title": "During the past 30 days, have you taken medications that do NOT contain aspirin at least 3 times a week, such as: Advil, Aleve, Celebrex, Ibuprofen, Motrin, Naproxen, Nuprin",
-        "type": "string",
+        "type": "number",
         "enum": [
-          "Yes",
-          "No",
-          "I don't know"
+          0,
+          1,
+          -9
         ],
         "description": "NOTE: Do NOT include TYLENOL"
       }

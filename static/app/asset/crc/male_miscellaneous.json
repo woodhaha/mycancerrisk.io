@@ -9,15 +9,15 @@
       "type": "radios",
       "titleMap": [
         {
-          "value": "Yes",
+          "value": "yes",
           "name": "Yes"
         },
         {
-          "value": "No",
+          "value": "no",
           "name": "No"
         },
         {
-          "value": "I don't know",
+          "value": "unk",
           "name": "I don't know"
         }
       ]
@@ -234,11 +234,11 @@
       "type": "radios",
       "titleMap": [
         {
-          "value": "Yes",
+          "value": "yes",
           "name": "Yes"
         },
         {
-          "value": "No",
+          "value": "no",
           "name": "No"
         }
       ],
@@ -439,9 +439,9 @@
         "title": "In your entire lifetime, altogether, have you smoked 100 or more cigarettes?",
         "type": "string",
         "enum": [
-            "Yes",
-            "No",
-            "I don't know"
+            "yes",
+            "no",
+            "unk"
         ]
     },
       "start_time": {
@@ -504,8 +504,8 @@
         "title": "Do you currently smoke cigarettes?",
         "type": "string",
         "enum": [
-            "Yes",
-            "No"
+            "yes",
+            "no"
         ]
      },
      "time_quit": {

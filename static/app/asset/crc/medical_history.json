@@ -9,15 +9,15 @@
       "type": "radios",
       "titleMap": [
         {
-          "value": "Yes",
+          "value": "yes",
           "name": "Yes"
         },
         {
-          "value": "No",
+          "value": "no",
           "name": "No"
         },
         {
-          "value": "I don't know",
+          "value": "unk",
           "name": "I don't know"
         }
       ]
@@ -27,15 +27,15 @@
       "type": "radios",
       "titleMap": [
         {
-          "value": "Yes",
+          "value": "yes",
           "name": "Yes"
         },
         {
-          "value": "No",
+          "value": "no",
           "name": "No"
         },
         {
-          "value": "I don't know",
+          "value": "unk",
           "name": "I don't know"
         }
       ],
@@ -54,18 +54,18 @@
         "title": "During the past 10 years, did you have a colonoscopy, sigmoidoscopy, or both?",
         "type": "string",
         "enum": [
-          "Yes",
-          "No",
-          "I don't know"
+          "yes",
+          "no",
+          "unk"
         ]
       },
       "medical_history_provider": {
         "title": "In the past 10 years did a healthcare provider tell you that you had a colon or rectal polyp?",
         "type": "string",
         "enum": [
-          "Yes",
-          "No",
-          "I don't know"
+          "yes",
+          "no",
+          "unk"
         ]
       }
     },

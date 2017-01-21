@@ -9,31 +9,31 @@
       "type": "select",
       "titleMap": [
         {
-          "value": "None",
+          "value": 0,
           "name": "None"
         },
         {
-          "value": "Less than 1 serving per week",
+          "value": 0,
           "name": "Less than 1 serving per week"
         },
         {
-          "value": "1-2 servings per week",
+          "value": 0,
           "name": "1-2 servings per week"
         },
         {
-          "value": "3-4 servings per week",
+          "value": 0,
           "name": "3-4 servings per week"
         },
         {
-          "value": "5-6 servings per week",
+          "value": 1,
           "name": "5-6 servings per week"
         },
         {
-          "value": "7-10 servings per week",
+          "value": 1,
           "name": "7-10 servings per week"
         },
         {
-          "value": "More than 10 servings per week",
+          "value": 1,
           "name": "More than 10 servings per week"
         }
       ]
@@ -76,15 +76,15 @@
     "properties": {
       "vegetables_serving": {
         "title": "1. In the past 30 days, about how many servings per week of vegetables or leafy green salads did you eat?",
-        "type": "string",
+        "type": "number",
         "enum": [
-          "None",
-          "Less than 1 serving per week",
-          "1-2 servings per week",
-          "3-4 servings per week",
-          "5-6 servings per week",
-          "7-10 servings per week",
-          "More than 10 servings per week"
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
         ],
         "description": "NOTE: If you have eaten vegetables in the past 30 days, you will define serving size in the next question."
       },

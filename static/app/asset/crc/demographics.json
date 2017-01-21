@@ -9,11 +9,11 @@
       "type": "radios-inline",
       "titleMap": [
         {
-          "value": "Yes",
+          "value": 3,
           "name": "Yes"
         },
         {
-          "value": "No",
+          "value": 0,
           "name": "No"
         }
       ]
@@ -23,15 +23,15 @@
       "type": "radios",
       "titleMap": [
         {
-          "value": "White",
+          "value": 1,
           "name": "White"
         },
         {
-          "value": "Black or African-American",
+          "value": 2,
           "name": "Black or African-American"
         },
         {
-          "value": "Asian or Pacific Islander",
+          "value": 4,
           "name": "Asian or Pacific Islander"
         }
       ]
@@ -318,19 +318,19 @@
     "properties": {
       "hispanic": {
         "title": "1. Do you consider yourself to be Hispanic or Latino?",
-        "type": "string",
+        "type": "number",
         "enum": [
-          "Yes",
-          "No"
+          3,
+          0
         ]
       },
       "race": {
         "title": "2. Which of the following do you consider yourself to be?",
-        "type": "string",
+        "type": "number",
         "enum": [
-          "White",
-          "Black or African-American",
-          "Asian or Pacific Islander"
+          1,
+          2,
+          4
         ]
       },
       "age": {

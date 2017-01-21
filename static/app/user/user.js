@@ -2,13 +2,29 @@
 
 angular.module('CRCRiskApp.user', ['ngRoute','schemaForm'])
 
-	.controller('UserCtrl', ['$scope','$rootScope', '$http',function($scope, $rootScope, $http) {
+	.controller('UserCtrl', ['$scope','$rootScope', '$http', '$window',function($scope, $rootScope, $http) {
+
 		$scope.form_user = [
-		    "fname",
-		    "lname",
-		    "age",
-		    "email",
-		    "Phone",
+		    {
+		    	"key": "fname",
+		    	"placeholder": ""
+		    },
+		    {
+		    	"key": "lname",
+		    	"placeholder": ""
+		    },
+		    {
+		    	"key": "age",
+		    	"placeholder": ""
+		    },
+		    {
+		    	"key": "email",
+		    	"placeholder": "test@gmail.com"
+		    },
+		    {
+		    	"key": "phone",
+		    	"placeholder": ""
+		    },
 		    {
 		      "type": "submit",
 		      "style": "btn-info",
@@ -38,7 +54,7 @@ angular.module('CRCRiskApp.user', ['ngRoute','schemaForm'])
 				    "type": "string",
 				    "pattern": "^\\S+@\\S+$"
 			    },
-			    "Phone": {
+			    "phone": {
 			    	"title": "Phone Number",
 			    	"type": "string",
 			    	"pattern": "^[0-9]*$"
@@ -52,7 +68,13 @@ angular.module('CRCRiskApp.user', ['ngRoute','schemaForm'])
 			    "Phone"
 			  ]
 		};
-		$scope.response_user = {};
+		$scope.response_user={};
+		$http.get("/getUserInfo")
+			.success(function (response) {
+				$scope.response_user = response;
+			}).error(function(error) {
+				console.log(error);
+			});
 		$scope.submit = function(form) {
 		    // First we broadcast an event so all fields validate themselves
             $scope.$broadcast('schemaFormValidate');
@@ -71,4 +93,5 @@ angular.module('CRCRiskApp.user', ['ngRoute','schemaForm'])
                   });
             }
 		}
+	 //    console.log(UserData);
 }]);
