@@ -71,23 +71,23 @@
       "type": "select",
       "titleMap": [
         {
-          "value": "Up to 1 hour per week",
+          "value": 1,
           "name": "Up to 1 hour per week"
         },
         {
-          "value": "Between 1-2 hours per week",
+          "value": 2,
           "name": "Between 1-2 hours per week"
         },
         {
-          "value": "Between 2-3 hours per week",
+          "value": 3,
           "name": "Between 2-3 hours per week"
         },
         {
-          "value": "Between 3-4 hours per week",
+          "value": 4,
           "name": "Between 3-4 hours per week"
         },
         {
-          "value": "More than 4 hours per week",
+          "value": 5,
           "name": "More than 4 hours per week"
         }
       ],
@@ -164,19 +164,19 @@
           "name": "Up to 1 hour per week"
         },
         {
-          "value": 1,
+          "value": 2,
           "name": "Between 1-2 hours per week"
         },
         {
-          "value": 2,
+          "value": 3,
           "name": "Between 2-3 hours per week"
         },
         {
-          "value": 2,
+          "value": 4,
           "name": "Between 3-4 hours per week"
         },
         {
-          "value": 3,
+          "value": 5,
           "name": "More than 4 hours per week"
         }
       ],
@@ -212,13 +212,13 @@
       },
       "moderate_activity_hours": {
         "title": "During those months, on average, about how many hours per week did you do moderate physical activities?",
-        "type": "string",
+        "type": "number",
         "enum": [
-          "Up to 1 hour per week",
-          "Between 1-2 hours per week",
-          "Between 2-3 hours per week",
-          "Between 3-4 hours per week",
-          "More than 4 hours per week"
+          1,
+          2,
+          3,
+          4,
+          5
         ]
       },
       "vigorous_activity_months": {
@@ -245,10 +245,10 @@
         "type": "number",
         "enum": [
           1,
-          1,
           2,
-          2,
-          3
+          3,
+          4,
+          5
         ]
       }
     },
@@ -260,3 +260,4 @@
     ]
   }
 }
+

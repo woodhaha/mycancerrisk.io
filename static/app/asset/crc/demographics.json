@@ -34,7 +34,8 @@
           "value": 4,
           "name": "Asian or Pacific Islander"
         }
-      ]
+      ],
+      "condition": "response.hispanic == 0"
     },
     {
       "key": "age",
@@ -317,7 +318,7 @@
     "type": "object",
     "properties": {
       "hispanic": {
-        "title": "1. Do you consider yourself to be Hispanic or Latino?",
+        "title": "Do you consider yourself to be Hispanic or Latino?",
         "type": "number",
         "enum": [
           3,
@@ -325,7 +326,7 @@
         ]
       },
       "race": {
-        "title": "2. Which of the following do you consider yourself to be?",
+        "title": "Which of the following do you consider yourself to be?",
         "type": "number",
         "enum": [
           1,
@@ -334,7 +335,7 @@
         ]
       },
       "age": {
-        "title": "3. What is your age? ",
+        "title": "What is your age? ",
         "type": "number",
         "enum": [
           50,
@@ -377,7 +378,7 @@
         "description": "<b>NOTE: This tool calculates risk for men and women 50 to 85 years of age.</b>"
       },
       "gender": {
-        "title": "4. What is your sex?",
+        "title": "What is your sex?",
         "type": "string",
         "enum": [
           "Male",
@@ -385,7 +386,7 @@
         ]
       },
       "height_feet": {
-        "title": "5. What is your height without shoes? (feet)",
+        "title": "What is your height without shoes? (feet)",
         "type": "number",
         "enum": [
           0,
@@ -403,7 +404,7 @@
         ]
       },
       "height_inches": {
-        "title": "6. What is your height without shoes? (inches)",
+        "title": "What is your height without shoes? (inches)",
         "type": "number",
         "enum": [
           1,
@@ -420,8 +421,8 @@
         ]
       },
       "weight": {
-        "title": "7. What is your weight without shoes? (lbs)",
-        "type": "number"
+        "title": "What is your weight without shoes? (lbs)",
+        "type": "integer"
       }
     },
     "required": [

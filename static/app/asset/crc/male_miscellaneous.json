@@ -9,15 +9,15 @@
       "type": "radios",
       "titleMap": [
         {
-          "value": "yes",
+          "value": -1,
           "name": "Yes"
         },
         {
-          "value": "no",
+          "value": 0,
           "name": "No"
         },
         {
-          "value": "unk",
+          "value": -9,
           "name": "I don't know"
         }
       ]
@@ -227,7 +227,7 @@
           "name": "54"
         }
       ],
-      "condition": "response.somke == 'Yes'"
+      "condition": "response.somke == -1"
     },
     {
       "key": "current_smoke",
@@ -242,7 +242,7 @@
           "name": "No"
         }
       ],
-      "condition": "response.somke == 'Yes' && response.start_time > 0 "
+      "condition": "response.somke == -1 && response.start_time > 0 "
     },
     {
       "key": "time_quit",
@@ -405,26 +405,26 @@
           "name": "54"
         }
       ],
-      "condition": "response.somke == 'Yes' && response.start_time > 0 && response.current_smoke == 'No'"
+      "condition": "response.somke == -1 && response.start_time > 0 && response.current_smoke == 'no'"
     },
     {
-      "key": "cigarettes_everday",
+      "key": "Num_Cigs",
       "type": "radios",
       "titleMap": [
         {
-          "value": "1 to 10 cigarettes a day",
+          "value": 1,
           "name": "1 to 10 cigarettes a day"
         },
         {
-          "value": "11 to 20 cigarettes a day",
+          "value": 2,
           "name": "11 to 20 cigarettes a day"
         },
         {
-          "value": "More than 20 cigarettes a day",
+          "value": 3,
           "name": "More than 20 cigarettes a day"
         }
       ],
-      "condition": "response.somke == 'Yes' && response.start_time > 0 "
+      "condition": "response.somke == -1 && response.start_time > 0 "
     },
     {
       "type": "submit",
@@ -437,11 +437,11 @@
     "properties": {
       "somke": {
         "title": "In your entire lifetime, altogether, have you smoked 100 or more cigarettes?",
-        "type": "string",
+        "type": "number",
         "enum": [
-            "yes",
-            "no",
-            "unk"
+            -1,
+            0,
+            -9
         ]
     },
       "start_time": {
@@ -554,20 +554,22 @@
         ],
         "description": "<b>NOTE: If you quit smoking cigarettes completely more than one time, please tell us how old you were the last time you quit smoking completely.</b>"
      },
-     "cigarettes_everday": {
+     "Num_Cigs": {
         "title": "Thinking back over the years you have smoked regularly, about how many cigarettes have you usually smoked a day?",
-        "type": "string",
+        "type": "number",
         "enum": [
-            "1 to 10 cigarettes a day",
-            "11 to 20 cigarettes a day",
-            "More than 20 cigarettes a day"
+            1,
+            2,
+            3
         ]
      }
     },
     "required": [
-      "periods",
-      "last_period",
-      "female_hormones"
+      "somke",
+      "start_time",
+      "current_smoke",
+      "time_quit",
+      "Num_Cigs"
     ]
   }
 }

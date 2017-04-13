@@ -9,11 +9,11 @@
       "type": "radios",
       "titleMap": [
         {
-          "value": "Yes",
+          "value": -9,
           "name": "Yes"
         },
         {
-          "value": "No",
+          "value": -1,
           "name": "No"
         }
       ]
@@ -23,34 +23,34 @@
       "type":"select",
       "titleMap": [
         {
-          "value": "1 year ago or less",
+          "value": -9,
           "name": "1 year ago or less"
         },
         {
-          "value": "More than 1 year ago but less than 2 years ago",
+          "value": -9,
           "name": "More than 1 year ago but less than 2 years ago"
         },
         {
-          "value": "2 year ago or more",
+          "value": -1,
           "name": "2 year ago or more"
         }
       ],
-      "condition": "response.periods == 'No'"
+      "condition": "response.periods == -1"
     },
     {
       "key": "female_hormones",
       "type": "radios",
       "titleMap": [
         {
-          "value": "Yes",
+          "value": 0,
           "name": "Yes"
         },
         {
-          "value": "No",
+          "value": 1,
           "name": "No"
         }
       ],
-      "condition": "response.periods == 'No' && response.last_period == '2 year ago or more'"
+      "condition": "response.periods == -1 && response.last_period == -1"
     },
     {
       "type": "submit",
@@ -63,27 +63,27 @@
     "properties": {
       "periods": {
         "title": "Do you still have periods?",
-        "type": "string",
+        "type": "number",
         "enum": [
-            "Yes",
-            "No"
+            -9,
+            -1
         ]
     },
       "last_period": {
         "title": "When did you have your last period?",
-        "type": "string",
+        "type": "number",
         "enum": [
-            "1 year ago or less",
-            "More than 1 year ago but less than 2 years ago",
-            "2 year ago or more"
+            -9,
+            -9,
+            -1
         ]
       },
       "female_hormones": {
         "title": "During the past 2 years, have you used estrogen, progestin, or other female hormones?",
-        "type": "string",
+        "type": "number",
         "enum": [
-            "Yes",
-            "No"
+            0,
+            1
         ],
         "description": "Note: These hormones may be given as hormone pills, oral contraceptives, shots, skin patches, vaginal creams, or as vaginal suppositories."
       }

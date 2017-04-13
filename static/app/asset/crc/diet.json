@@ -13,27 +13,27 @@
           "name": "None"
         },
         {
-          "value": 0,
+          "value": 1,
           "name": "Less than 1 serving per week"
         },
         {
-          "value": 0,
+          "value": 2,
           "name": "1-2 servings per week"
         },
         {
-          "value": 0,
+          "value": 4,
           "name": "3-4 servings per week"
         },
         {
-          "value": 1,
+          "value": 6,
           "name": "5-6 servings per week"
         },
         {
-          "value": 1,
+          "value": 10,
           "name": "7-10 servings per week"
         },
         {
-          "value": 1,
+          "value": 11,
           "name": "More than 10 servings per week"
         }
       ]
@@ -63,7 +63,7 @@
           "name": "More than 5 cups"
         }
       ],
-      "condition" : "response.vegetables_serving == 'Less than 1 serving per week' || response.vegetables_serving == '1-2 servings per week' || response.vegetables_serving == '3-4 servings per week' || response.vegetables_serving == '5-6 servings per week' || response.vegetables_serving == '7-10 servings per week' || response.vegetables_serving == 'More than 10 servings per week'"
+      "condition" : "response.vegetables_serving != 0"
     },
     {
       "type": "submit",
@@ -79,12 +79,12 @@
         "type": "number",
         "enum": [
           0,
-          0,
-          0,
-          0,
           1,
-          1,
-          1
+          2,
+          4,
+          6,
+          10,
+          11
         ],
         "description": "NOTE: If you have eaten vegetables in the past 30 days, you will define serving size in the next question."
       },

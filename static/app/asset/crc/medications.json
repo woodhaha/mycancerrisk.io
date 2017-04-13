@@ -5,7 +5,7 @@
       "helpvalue": "<h3>Section 4: Medications<h3>"
     },
     {
-      "key": "take_aspirin",
+      "key": "NoIBuprofen",
       "type": "radios",
       "titleMap": [
         {
@@ -23,7 +23,22 @@
       ]
     },
     {
-      "key": "not_take_aspirin",
+      "key": "No_NSaids(IBuprofen)",
+      "type": "radios",
+      "titleMap": [
+        {
+          "value": 0,
+          "name": "Yes"
+        },
+        {
+          "value": -9,
+          "name": "I don't know"
+        }
+      ],
+      "condition": "response.NoIBuprofen == 0"
+    },
+    {
+      "key": "No_NSaids(NoIBuprofen)",
       "type": "radios",
       "titleMap": [
         {
@@ -38,7 +53,8 @@
           "value": -9,
           "name": "I don't know"
         }
-      ]
+      ],
+      "condition": "response.NoIBuprofen != 0"
     },
     {
       "type": "submit",
@@ -49,8 +65,8 @@
   "schema": {
     "type": "object",
     "properties": {
-      "take_aspirin": {
-        "title": "During the past 30 days, have you taken medications containing aspirin at least 3 times a week, such as: Bufferin, Bayer, Excedrin, Other generic form",
+      "NoIBuprofen": {
+        "title": "During the past 30 days, have you taken medications that do NOT contain aspirin at least 3 times a week, such as: Advil, Aleve, Celebrex, Ibuprofen, Motrin, Naproxen, Nuprin",
         "type": "number",
         "enum": [
           0,
@@ -59,8 +75,17 @@
         ],
         "description": "NOTE: Do NOT include TYLENOL"
       },
-      "not_take_aspirin": {
-        "title": "During the past 30 days, have you taken medications that do NOT contain aspirin at least 3 times a week, such as: Advil, Aleve, Celebrex, Ibuprofen, Motrin, Naproxen, Nuprin",
+      "No_NSaids(IBuprofen)": {
+        "title": "During the past 30 days, have you taken medications containing aspirin at least 3 times a week, such as: Bufferin, Bayer, Excedrin, Other generic form",
+        "type": "number",
+        "enum": [
+          0,
+          -9
+        ],
+        "description": "NOTE: Do NOT include TYLENOL"
+      },
+      "No_NSaids(NoIBuprofen)": {
+        "title": "During the past 30 days, have you taken medications containing aspirin at least 3 times a week, such as: Bufferin, Bayer, Excedrin, Other generic form",
         "type": "number",
         "enum": [
           0,
@@ -71,8 +96,9 @@
       }
     },
     "required": [
-      "take_aspirin",
-      "not_take_aspirin"
+      "No_NSaids(IBuprofen)",
+      "NoIBuprofen",
+      "No_NSaids(NoIBuprofen)"
     ]
   }
 }
