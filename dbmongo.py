@@ -8,11 +8,13 @@ from flask import current_app
 import numpy as np
 import scipy.misc as spy
 import derivatives
+from time import gmtime, strftime
 
 Race = -1
 T1 =-1
 T2 = -1
 gender = ''
+current_time = ''
 
 class JSONEncoder(json.JSONEncoder):
     def default(self, o):
@@ -105,15 +107,19 @@ def CI_calculator(Var_Pi,AbsRsk):
 @form_db.route('/saveUserInfo',methods=['POST'])
 def updateForm():
     try:
+        usr_test = {}
         json_data = request.json['info']
-        current_app.logger.info(json_data)  # the jaon_data is 'dict'
+        usr_test['test_data'] = json_data
+
+        # current_app.logger.info(usr_test)  # the jaon_data is 'dict'
         ### declear input variable ###
         global Race
         global T1
         global gender
         global T2
-        # Race = -1
-        # T1 =-1
+        global current_time
+
+        current_time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
         BMI_male = -1
         BMI_female = -1
         Veg = -1
@@ -249,9 +255,7 @@ def updateForm():
                     else:
                         CigYr = [0,0,0,0]
 
-            # input_data = [Race,posi[0],posi[1],posi[2],No_IBupro,Rel_CRC,hrs_Xrcise,CigYr[0],CigYr[1],CigYr[2],Veg,Cigarets,BMI_male,posi[1],posi[2],posi[3],No_NSaids,Rel_Trend]
-            input_data = [1,0,1,0,1,1,3,0,1,0,1,3,2,1,0,0,1,2]
-            # input_data = [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            input_data = [Race,posi[0],posi[1],posi[2],No_IBupro,Rel_CRC,hrs_Xrcise,CigYr[0],CigYr[1],CigYr[2],Veg,Cigarets,BMI_male,posi[1],posi[2],posi[3],No_NSaids,Rel_Trend]
             Xstar_r = input_data[1:7]
             Xstar_p = input_data[7:18]
             Xstar_d = input_data[12:18]
@@ -326,8 +330,8 @@ def updateForm():
             BMI30YesStrgn = (BMI >= 30) * (1 - No_Strogn)
 
 
-            # input_data = [Race,posi[0],posi[1],posi[2],No_Strogn,Rel_CRC,No_NSaids,VigrXrcis[0],VigrXrcis[1],VigrXrcis[2],BMI_female,hrs_Xrcise,Veg,No_NSaids,posi[1],posi[2],posi[3],No_Strogn,Rel_Trend,BMI_female,BMI30YesStrgn]
-            input_data = [1,0,0,1,1,1,1,1,0,0,1,3,1,1,0,1,0,1,2,1,0]
+            input_data = [Race,posi[0],posi[1],posi[2],No_Strogn,Rel_CRC,No_NSaids,VigrXrcis[0],VigrXrcis[1],VigrXrcis[2],BMI_female,hrs_Xrcise,Veg,No_NSaids,posi[1],posi[2],posi[3],No_Strogn,Rel_Trend,BMI_female,BMI30YesStrgn]
+            # input_data = [1,0,0,1,1,1,1,1,0,0,1,3,1,1,0,1,0,1,2,1,0]
             Xstar_r = input_data[1:11]
             Xstar_p = input_data[11:19]
             Xstar_d = input_data[13:21]
@@ -372,10 +376,15 @@ def updateForm():
             # current_app.logger.info(Cov)
 
             # wrkCov
+        usr_test['test_result'] = {'absRsk': AbsRisk, 'CI': CI}
+        current_app.logger.info(usr_test)
 
-        current_app.logger.info(AbsRisk)
-        # current_app.logger.info(CI)
-
+        # insert test_result
+        if db.testUser.find_one({'id' : session['id']}) != None:
+            current_app.logger.info('find')
+            db.testUser.update({'id': session['id']},{'$set':{'test_info.' + current_time : usr_test}})
+        else:
+            return jsonify(status='ERROR',message='update test result failed')
 
         return jsonify(status='OK',message='send to back_end successfully')
     except Exception as e:
@@ -393,10 +402,13 @@ def updateUser():
         fname = user_data['fname']
         lname = user_data['lname']
         userId = session['id']
+        test_info = {}
         current_app.logger.info(userId)
         if db.testUser.find_one({'id' : userId}) != None:
             current_app.logger.info("find it")
             db.testUser.update_one({'id': userId},{'$set':{'fname':fname,'lname':lname,'email':email,'age':age,'phone':phoneNum}})
+            data = db.testUser.find_one({'id': session['id']})
+            current_app.logger.info(data)
         else:
             current_app.logger.info("insert it")
             db.testUser.insert_one(
@@ -406,7 +418,8 @@ def updateUser():
                 'lname':lname,
                 'email':email,
                 'age':age,
-                'phone':phoneNum
+                'phone':phoneNum,
+                'test_info': test_info
                 })
         return jsonify(status='OK',message='update successfully')
     except Exception as e:
@@ -419,6 +432,19 @@ def sendUserInfo():
             current_app.logger.info(data)
             #return jsonify(status='OK',message=JSONEncoder().encode(data))
             return JSONEncoder().encode(data)
+        else:
+            return jsonify(status='ERROR',message='update failed')
+        # db.testUser.drop()
+    except Exception as e:
+        return str(e)
+@form_db.route('/getResult',methods=['GET'])
+def sendResult():
+    try:
+        if db.testUser.find_one({'id' : session['id']}) != None:
+            data = db.testUser.find_one({'id': session['id']})
+            # current_app.logger.info(data)
+            #return jsonify(status='OK',message=JSONEncoder().encode(data))
+            return JSONEncoder().encode(data['test_info'][current_time]['test_result'])
         else:
             return jsonify(status='ERROR',message='update failed')
         # db.testUser.drop()
