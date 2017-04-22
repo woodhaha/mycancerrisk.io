@@ -123,67 +123,7 @@
         },
         {
           "value": 70,
-          "name": "61"
-        },
-        {
-          "value": 71,
-          "name": "71"
-        },
-        {
-          "value": 72,
-          "name": "72"
-        },
-        {
-          "value": 73,
-          "name": "73"
-        },
-        {
-          "value": 74,
-          "name": "74"
-        },
-        {
-          "value": 75,
-          "name": "75"
-        },
-        {
-          "value": 76,
-          "name": "76"
-        },
-        {
-          "value": 77,
-          "name": "77"
-        },
-        {
-          "value": 78,
-          "name": "78"
-        },
-        {
-          "value": 79,
-          "name": "79"
-        },
-        {
-          "value": 80,
-          "name": "71"
-        },
-        {
-          "value": 81,
-          "name": "71"
-        },
-        {
-          "value": 82,
-          "name": "82"
-        },
-        {
-          "value": 83,
-          "name": "83"
-        },
-        {
-          "value": 84,
-          "name": "84"
-        },
-        {
-          "value": 85,
-          "name": "85"
+          "name": "70"
         }
       ]
     },
@@ -363,17 +303,7 @@
           72,
           73,
           74,
-          75,
-          76,
-          77,
-          78,
-          79,
-          80,
-          81,
-          82,
-          83,
-          84,
-          85
+          75
         ],
         "description": "<b>NOTE: This tool calculates risk for men and women 50 to 85 years of age.</b>"
       },

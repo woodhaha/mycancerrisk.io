@@ -110,7 +110,7 @@ def updateForm():
         usr_test = {}
         json_data = request.json['info']
         usr_test['test_data'] = json_data
-
+        race = ['white','black','hispanic','asian']
         # current_app.logger.info(usr_test)  # the jaon_data is 'dict'
         ### declear input variable ###
         global Race
@@ -298,7 +298,7 @@ def updateForm():
                 Cig_Yr = 3
             if CigYr[3] == 1:
                 Cig_Yr = 1
-            Patrn_Indx = (Rel_Trend+1) + 3*Cigarets + 4*3*No_IBupro + 2*4*3*No_NSaids + 2*2*4*3*(sigmod) + 4*2*2*4*3*(BMI_male) + 3*4*2*2*4*3*(Veg) +  2*3*4*2*2*4*3*(Cig_Yr) + 4*2*3*4*2*2*4*3*(hrs_Xrcise)
+            Patrn_Indx = 1 + (Rel_Trend+1) + 3*Cigarets + 4*3*No_IBupro + 2*4*3*No_NSaids + 2*2*4*3*(sigmod) + 4*2*2*4*3*(BMI_male) + 3*4*2*2*4*3*(Veg) +  2*3*4*2*2*4*3*(Cig_Yr) + 4*2*3*4*2*2*4*3*(hrs_Xrcise)
             Cov = config.wrkCov_male[Patrn_Indx - 1]
 
             # wrkCov
@@ -370,13 +370,18 @@ def updateForm():
                 if i == 1:
                     break
                 sigmod += 1
-            Pattrn_ID  =  2*2*2*4*2*3*1*hrs_Xrcise + 2*2*4*2*3*1*No_Strogn + 2*4*2*3*1*Veg + 4*2*3*1*BMI_female + 2*3*1*sigmod + 3*1*No_NSaids + 1*Rel_Trend + 1*1
+            Pattrn_ID  =  2*2*2*4*2*3*1*hrs_Xrcise + 2*2*4*2*3*1*No_Strogn + 2*4*2*3*1*Veg + 4*2*3*1*BMI_female + 2*3*1*sigmod + 3*1*No_NSaids + 1*Rel_Trend + 1
             Cov = config.wrkCov_female[Pattrn_ID - 1]
-            # current_app.logger.info(Pattrn_ID)
-            # current_app.logger.info(Cov)
 
             # wrkCov
-        usr_test['test_result'] = {'absRsk': AbsRisk, 'CI': CI}
+            # final_wrkCov_10_1 = dAbsRsk_10[0]*dAbsRsk_10[0]*Cov[0] + dAbsRsk_10[1]*dAbsRsk_10[1]*Cov[1] + 2*dAbsRsk_10[1]*dAbsRsk_10[2]*Cov[3] + dAbsRsk_10[2]*dAbsRsk_10[2]*Cov[2]
+            # CI[1] = CI_calculator(final_wrkCov_10_1,AbsRisk[1])
+            # current_app.logger.info(Cov)
+            # current_app.logger.info(AbsRisk[1])
+            # current_app.logger.info(dAbsRsk_10)
+
+
+        usr_test['test_result'] = {'absRsk': AbsRisk, 'CI': CI , 'avgrisk': config.average_risk[gender][str(T1)][race[Race-1]]}
         current_app.logger.info(usr_test)
 
         # insert test_result

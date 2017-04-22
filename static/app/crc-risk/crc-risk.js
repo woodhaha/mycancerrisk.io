@@ -96,6 +96,7 @@ angular.module('CRCRiskApp.risk', ['ngRoute','schemaForm', 'angular-loading-bar'
               // console.log('CI: ' + response['CI']);
               $scope.risk = response['absRsk'];
               $scope.CI = response['CI'];
+              $scope.average_risk = response['avgrisk'];
              }).error(function(error) {
                 console.log(error);
              });
