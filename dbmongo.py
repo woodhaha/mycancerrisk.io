@@ -6,7 +6,6 @@ import config
 import math
 from flask import current_app
 import numpy as np
-import scipy.misc as spy
 import derivatives
 from time import gmtime, strftime
 
