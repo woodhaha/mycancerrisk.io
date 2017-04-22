@@ -5,6 +5,7 @@ var _env = {};
 var CRCRiskApp = angular.module('CRCRiskApp', [
   'ngRoute',
   'CRCRiskApp.risk',
+  'CRCRiskApp.risk-results',
   'CRCRiskApp.about',
   'CRCRiskApp.user',
   'CRCRiskApp.version',
