@@ -28,6 +28,8 @@ form_db = Blueprint('form_db',__name__)
 
 # def ar_calculator(One_AR_RR,Race,T1,T2,gender):
 def ar_calculator(One_AR_RR):
+    current_app.logger.info(Race)
+    current_app.logger.info(T1)
     One_ARxRR_r = One_AR_RR[0]
     One_ARxRR_p = One_AR_RR[1]
     One_ARxRR_d = One_AR_RR[2]
@@ -446,9 +448,6 @@ def sendResult():
     try:
         if db.testUser.find_one({'id' : session['id']}) != None:
             data = db.testUser.find_one({'id': session['id']})
-            current_app.logger.info(current_time)
-            current_app.logger.info(Race)
-            current_app.logger.info(T1)
 
             return JSONEncoder().encode(data['test_info'][current_time]['test_result'])
         else:
