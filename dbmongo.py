@@ -447,6 +447,8 @@ def sendResult():
         if db.testUser.find_one({'id' : session['id']}) != None:
             data = db.testUser.find_one({'id': session['id']})
             current_app.logger.info(current_time)
+            current_app.logger.info(Race)
+            current_app.logger.info(T1)
 
             return JSONEncoder().encode(data['test_info'][current_time]['test_result'])
         else:
