@@ -7,7 +7,7 @@ import math
 from flask import current_app
 import numpy as np
 import derivatives
-from time import gmtime, strftime
+from time import gmtime, strftime, strptime
 
 Race = -1
 T1 =-1
@@ -28,8 +28,6 @@ form_db = Blueprint('form_db',__name__)
 
 # def ar_calculator(One_AR_RR,Race,T1,T2,gender):
 def ar_calculator(One_AR_RR):
-    current_app.logger.info(Race)
-    current_app.logger.info(T1)
     One_ARxRR_r = One_AR_RR[0]
     One_ARxRR_p = One_AR_RR[1]
     One_ARxRR_d = One_AR_RR[2]
@@ -448,8 +446,15 @@ def sendResult():
     try:
         if db.testUser.find_one({'id' : session['id']}) != None:
             data = db.testUser.find_one({'id': session['id']})
-
-            return JSONEncoder().encode(data['test_info'][current_time]['test_result'])
+            p_time = strptime('2000-01-01 00:00:00', '%Y-%m-%d %H:%M:%S')
+            for t in data['test_info']:
+                time = strptime(t, '%Y-%m-%d %H:%M:%S')
+                if time > p_time:
+                    p_time = time
+                else:
+                    continue
+            p_time = strftime("%Y-%m-%d %H:%M:%S", p_time)
+            return JSONEncoder().encode(data['test_info'][p_time]['test_result'])
         else:
             return jsonify(status='ERROR',message='update failed')
         # db.testUser.drop()
